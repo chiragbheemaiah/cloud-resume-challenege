@@ -5,6 +5,15 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script>
+			async function getVisitorCount() {
+				const response = await fetch("https://6q9gx4a9pc.execute-api.us-east-1.amazonaws.com/retrieve_visitor_count");
+				const visitor_count = await response.json();
+				count = document.querySelector('.visitor_count');
+				count.innerHTML = await visitor_count;
+			}		
+			getVisitorCount();
+		</script>
 	</head>
 	<body class="is-preload">
 
@@ -17,7 +26,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo"><strong>Visitor Count</strong> - 0</a>
+									<a href="index.html" class="logo"><strong>Visitor Count</strong> - <span class="visitor_count">0</span></a>
 									<ul class="icons">
 										<li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 										<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
