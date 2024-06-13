@@ -98,7 +98,6 @@ resource "aws_s3_object" "object" {
   key = each.value
   source = "Resume/${each.value}"
   source_hash = filemd5("Resume/${each.value}")
-#   acl = "public-read" # Use "public-read" if you want the files to be publicly accessible
   content_type = lookup(tomap(local.mime_types), element(split(".", each.key), length(split(".", each.key)) - 1), "text/plain")
 }
 

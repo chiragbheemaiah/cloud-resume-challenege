@@ -5,3 +5,5 @@
 terraform.tfstate
 
 terraform.tfstate.backup
+
+python/lambda_function.zip

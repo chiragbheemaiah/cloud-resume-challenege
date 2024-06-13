@@ -1,5 +1,5 @@
 import json
-import boto3
+import boto3 # type: ignore
 
 def lambda_handler(event, context):
     # Connect to DB
@@ -15,7 +15,7 @@ def lambda_handler(event, context):
     # Update the visitor count
     table.update_item(
         Key={
-            'id': '1',
+            'ID': '1',
         },
         UpdateExpression='SET VisitorCount = :val1',
         ExpressionAttributeValues={
